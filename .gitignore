@@ -39,5 +39,5 @@
 
 # debug information files
 *.dwo
-/.pio/
+/.pio/build
 /.vscode/c_cpp_properties.json
