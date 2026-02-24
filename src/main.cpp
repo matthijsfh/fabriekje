@@ -1,5 +1,6 @@
 #include <Arduino.h>
 
+// Pin definitions
 #define DIR_PIN 19
 #define STEP_PIN 18
 #define COIL_PIN 3
@@ -27,29 +28,29 @@ void loop() {
 
     if (bring_crate) {
         digitalWrite(COIL_PIN, LOW);
-        
+
         // forward
-        step(distance, LOW, 200);   
+        step(distance, LOW, 200);
 
         // coil on
         digitalWrite(COIL_PIN, HIGH);
         delay(2000);
 
         // return
-        step(distance + 100, HIGH, 200);   
+        step(distance + 100, HIGH, 200);
         delay(2000);
     }
     else {
         digitalWrite(COIL_PIN, HIGH);
-        
+
         // forward
-        step(distance, LOW, 200);   
+        step(distance, LOW, 200);
 
         digitalWrite(COIL_PIN, LOW);
         delay(2000);
 
         // return
-        step(distance+100, HIGH, 200);   
+        step(distance+100, HIGH, 200);
         delay(2000);
     }
 
