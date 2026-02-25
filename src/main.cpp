@@ -3,6 +3,7 @@
 #define DIR_PIN 19
 #define STEP_PIN 18
 #define COIL_PIN 3
+#define SWITCH_PIN 4
 
 int distance = 12500;
 int bring_crate = 1;
@@ -21,9 +22,15 @@ void setup() {
   pinMode(DIR_PIN, OUTPUT);
   pinMode(STEP_PIN, OUTPUT);
   pinMode(COIL_PIN, OUTPUT);
+  pinMode(SWITCH_PIN, INPUT_PULLUP);
 }
 
 void loop() {
+
+    // wait for button press  
+    while (digitalRead(SWITCH_PIN) == HIGH) {
+    delay(100);
+    }
 
     if (bring_crate) {
         digitalWrite(COIL_PIN, LOW);
